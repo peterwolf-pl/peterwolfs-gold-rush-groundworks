@@ -1,0 +1,12 @@
+{
+  "itemGroup.pw_groundworks.group": "Groundworks",
+  "item.pw_gold_rush_groundworks.gold_rush_screen": "Przesiewacz Gold Rush Groundworks",
+  "entity.pw_gold_rush_groundworks.gold_rush_screen": "Przesiewacz Gold Rush Groundworks",
+  "material.pw_gold_rush_groundworks.gold": "Złoto",
+  "material.pw_gold_rush_groundworks.gravel": "Żwir",
+  "material.pw_gold_rush_groundworks.sand": "Piasek",
+  "material.pw_gold_rush_groundworks.dirt": "Ziemia",
+  "material.pw_gold_rush_groundworks.cobblestone": "Bruk",
+  "message.pw_gold_rush_groundworks.selected_material": "Materiał odsiewany: %s",
+  "message.pw_gold_rush_groundworks.not_empty": "W przesiewaczu nadal znajduje się urobek."
+}

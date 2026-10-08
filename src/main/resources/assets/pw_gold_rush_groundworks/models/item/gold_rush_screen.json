@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pw_gold_rush_groundworks:item/gold_rush_screen"
+  }
+}

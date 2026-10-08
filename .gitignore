@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+
+# Minecraft
+run/
+logs/
+*.log
+*.log.gz
+
+# Graphify
+graphify-out/

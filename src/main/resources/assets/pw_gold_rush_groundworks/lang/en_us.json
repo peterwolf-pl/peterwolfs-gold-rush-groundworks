@@ -1,0 +1,12 @@
+{
+  "itemGroup.pw_groundworks.group": "Groundworks",
+  "item.pw_gold_rush_groundworks.gold_rush_screen": "Gold Rush Groundworks Screen",
+  "entity.pw_gold_rush_groundworks.gold_rush_screen": "Gold Rush Groundworks Screen",
+  "material.pw_gold_rush_groundworks.gold": "Gold",
+  "material.pw_gold_rush_groundworks.gravel": "Gravel",
+  "material.pw_gold_rush_groundworks.sand": "Sand",
+  "material.pw_gold_rush_groundworks.dirt": "Dirt",
+  "material.pw_gold_rush_groundworks.cobblestone": "Cobblestone",
+  "message.pw_gold_rush_groundworks.selected_material": "Screened material: %s",
+  "message.pw_gold_rush_groundworks.not_empty": "The screen still contains material."
+}

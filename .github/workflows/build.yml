@@ -1,0 +1,43 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+      - fix/**
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Gold Rush Groundworks
+        uses: actions/checkout@v4
+        with:
+          path: gold-rush
+
+      - name: Checkout Groundworks
+        uses: actions/checkout@v4
+        with:
+          repository: peterwolf-pl/peterwolfs-groundworks
+          path: groundworks
+
+      - name: Set up Java 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Set up Gradle 9.5.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.5.1'
+
+      - name: Publish Groundworks to Maven Local
+        working-directory: groundworks
+        run: gradle publishToMavenLocal
+
+      - name: Test and build Gold Rush Groundworks
+        working-directory: gold-rush
+        run: gradle clean test build
