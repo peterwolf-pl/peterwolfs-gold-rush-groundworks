@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "pw_gold_rush_groundworks:auriferous_gravel_10",
+    "pw_gold_rush_groundworks:auriferous_gravel_25",
+    "pw_gold_rush_groundworks:auriferous_gravel_50",
+    "pw_gold_rush_groundworks:auriferous_gravel_80"
+  ]
+}

@@ -1,7 +1,9 @@
 package com.piotrek.goldrushgroundworks.entity;
 
 import com.piotrek.goldrushgroundworks.GoldRushGroundworksMod;
+import com.piotrek.goldrushgroundworks.block.AuriferousGravelBlock;
 import com.piotrek.goldrushgroundworks.config.GoldRushConfig;
+import com.piotrek.goldrushgroundworks.item.AuriferousGravelItem;
 import com.piotrek.goldrushgroundworks.logic.GoldYieldLogic;
 import com.piotrek.goldrushgroundworks.logic.GradationRouting;
 import com.piotrek.groundworks.api.GroundworksApi;
@@ -11,6 +13,7 @@ import com.piotrek.groundworks.api.excavation.ExcavationResult;
 import com.piotrek.groundworks.api.material.GranularComposition;
 import com.piotrek.groundworks.api.material.GranularMaterial;
 import com.piotrek.groundworks.api.material.GranularMaterialRegistry;
+import com.piotrek.groundworks.terrain.conversion.BlockConverter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -617,6 +620,9 @@ public class GoldRushScreenEntity extends Entity implements IWorldGranularContai
 
                 for (int y = maxY; y >= minY && budget > 0; y--) {
                     BlockPos pos = new BlockPos(x, y, z);
+                    if (level.getBlockState(pos).getBlock() instanceof AuriferousGravelBlock) {
+                        BlockConverter.convert(level, pos, Blocks.GRAVEL.defaultBlockState());
+                    }
                     GranularComposition before = GroundworksApi.getComposition(level, pos);
                     if (before.isEmpty()) {
                         continue;
@@ -785,6 +791,10 @@ public class GoldRushScreenEntity extends Entity implements IWorldGranularContai
     private static GranularMaterial materialFromHeldBlock(ItemStack stack) {
         if (!(stack.getItem() instanceof BlockItem blockItem)) {
             return null;
+        }
+
+        if (blockItem instanceof AuriferousGravelItem) {
+            return GranularMaterialRegistry.GRAVEL;
         }
 
         return GranularMaterialRegistry.forBlockState(blockItem.getBlock().defaultBlockState());

@@ -1,0 +1,26 @@
+{
+  "projectId": 1734022,
+  "title": "Peterwolf's Gołd Rush Groundworks",
+  "summary": "A Groundworks screening plant that separates excavated material and recovers native Minecraft gold nuggets from processed gravel.",
+  "description": "# Peterwolf's Gold Rush Groundworks\n\nEarly-release gold recovery expansion for Minecraft Java 26.3 / Fabric and Peterwolf's Groundworks.\n\n## What it does\n\n- Adds a dedicated Gold Rush gradation screen based on the Groundworks excavated-material screen.\n- Defaults to dedicated **Gold screening mode** (`Złoto` / `Gold`).\n- Keeps normal Groundworks material sorting and conveyor outputs.\n- Gravel processed through the wash plant produces native `minecraft:gold_nugget` items.\n- Default yield is exactly 2 gold nuggets per 10 full Groundworks blocks of processed gravel.\n- Yield is deterministic and based only on gravel that actually leaves the machine.\n- Partial gold-yield progress is saved with the screen entity and survives world reloads.\n- No custom gold item is used. The output is the vanilla Minecraft gold nugget.\n\n## Material selection & Gold screening mode\n\nRight-click the machine to choose the screened material:\n\n- **Empty hand:** cycles through: `Złoto` (Gold) → `Ziemia` (Dirt) → `Piasek` (Sand) → `Żwir` (Gravel) → `Bruk` (Cobblestone) → `Złoto` (Gold).\n- **Gold items:** right-clicking with any gold item (gold nugget, raw gold, gold ingot, gold ore, gold block, raw gold block) immediately switches to **Złoto** (Gold screening mode).\n- **Block items:** right-clicking with dirt, sand, gravel, or cobblestone sets the machine to sort that specific material.\n\nWhen set to **Złoto (Gold)**:\n- Gold-bearing paydirt (gravel) is routed down the side wash conveyor directly over the gold recovery sluice box.\n- Native `minecraft:gold_nugget` items drop into the collection point beneath the sluice.\n- Tailings and oversize waste (dirt, cobblestone) are discharged out the rear conveyor.\n\n## Hopper collection\n\nGold nuggets drop from a dedicated collection point below the side conveyor, outside the machine collision box.\n\nPlace a vanilla hopper under that part of the conveyor and point the hopper into a chest. Nuggets are normal item entities, so the hopper collects them with standard Minecraft mechanics and the chest receives native `minecraft:gold_nugget` stacks.\n\nThe granular gravel stream stays separate from the nugget collection point, so it does not need to pass through the hopper.\n\n## Yield command\n\nCurrent setting:\n\n    /goldrush nuggets-per-10-blocks\n\nSet the amount of gold nuggets produced per 10 full blocks of processed gravel:\n\n    /goldrush nuggets-per-10-blocks <amount>\n\nExample:\n\n    /goldrush nuggets-per-10-blocks 2\n\nDefault: `2`.\n\nAllowed range: `0-1024`.\n\nSetting `0` disables new gold recovery. Changing the rate is persistent in:\n\n    config/pw_gold_rush_groundworks.properties\n\nChanging the value requires moderator command permission. Reading the current value does not.\n\n## Gold accounting\n\nGroundworks uses 512 integer material units per full block. Gold Rush uses a weighted carry accumulator, so fractional progress is never lost.\n\nAt the default rate:\n\n- 5 processed gravel blocks produce 1 nugget.\n- 10 processed gravel blocks produce 2 nuggets.\n- 100 processed gravel blocks produce 20 nuggets.\n\nIf a receiver is blocked and gravel does not actually leave the screen, the gold counter does not advance.\n\n## Crafting and placement\n\nThe Gold Rush screen uses the same early-release recipe layout as the gradation screen:\n\n    I I I\n    R H R\n    I P I\n\n- I = iron ingot\n- R = redstone\n- H = hopper\n- P = piston\n\nRight-click a block with the item to place the machine. Shift + right-click the empty machine with an empty hand retrieves it.\n\n## Build\n\nRequirements:\n\n- Minecraft 26.3\n- Fabric Loader 0.19.5+\n- Fabric API 0.160.7+26.3\n- Java 25\n- Peterwolf's Groundworks 0.1.0+26.3\n\nPublish Groundworks to Maven Local first:\n\n    cd ../peterwolfs-groundworks\n    ./gradlew publishToMavenLocal\n\nThen build Gold Rush Groundworks:\n\n    ./gradlew clean test build\n\nThe resulting jar is written to `build/libs`.\n",
+  "enabled": false,
+  "releaseType": "release",
+  "changelogType": "markdown",
+  "changelog": "",
+  "manualRelease": false,
+  "media": {
+    "youtube": [],
+    "gallery": []
+  },
+  "dependencies": [
+    {
+      "slug": "fabric-api",
+      "type": "requiredDependency"
+    },
+    {
+      "slug": "peterwolfs-groundworks",
+      "type": "requiredDependency"
+    }
+  ],
+  "publishedVersion": null
+}

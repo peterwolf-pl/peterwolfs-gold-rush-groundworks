@@ -1,0 +1,150 @@
+{
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "ambient": [
+            {
+              "type": "minecraft:bat",
+              "count": 8,
+              "weight": 10
+            }
+          ],
+          "creature": [
+            {
+              "type": "minecraft:sheep",
+              "count": 4,
+              "weight": 12
+            },
+            {
+              "type": "minecraft:pig",
+              "count": 4,
+              "weight": 10
+            },
+            {
+              "type": "minecraft:chicken",
+              "count": 4,
+              "weight": 10
+            },
+            {
+              "type": "minecraft:cow",
+              "count": 4,
+              "weight": 8
+            },
+            {
+              "type": "minecraft:horse",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 4,
+                "min_inclusive": 2
+              },
+              "weight": 6
+            },
+            {
+              "type": "minecraft:donkey",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              },
+              "weight": 4
+            }
+          ],
+          "monster": [
+            {
+              "type": "minecraft:spider",
+              "count": 4,
+              "weight": 100
+            },
+            {
+              "type": "minecraft:zombie",
+              "count": 4,
+              "weight": 95
+            },
+            {
+              "type": "minecraft:skeleton",
+              "count": 4,
+              "weight": 100
+            },
+            {
+              "type": "minecraft:creeper",
+              "count": 4,
+              "weight": 100
+            },
+            {
+              "type": "minecraft:enderman",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 4,
+                "min_inclusive": 1
+              },
+              "weight": 10
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/sky_color": "#7ba4ff"
+  },
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
+  ],
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": "#c0d8ff",
+    "foliage_color": "#789945",
+    "grass_color": "#86a34e",
+    "water_color": "#3a6fb0",
+    "water_fog_color": "#244a78"
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [],
+    [],
+    [
+      "pw_gold_rush_groundworks:paleochannel",
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel"
+    ],
+    [],
+    [
+      "minecraft:spring_lava"
+    ],
+    [
+      "pw_gold_rush_groundworks:gold_mine_forest_clumps",
+      "minecraft:patch_bush",
+      "minecraft:patch_grass_plain",
+      "minecraft:patch_tall_grass_2",
+      "minecraft:flower_plains"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": 0.7
+}
