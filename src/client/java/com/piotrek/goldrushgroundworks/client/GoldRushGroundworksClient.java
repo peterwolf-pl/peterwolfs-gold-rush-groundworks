@@ -5,7 +5,7 @@ import com.piotrek.goldrushgroundworks.client.model.GoldRushScreenModel;
 import com.piotrek.goldrushgroundworks.client.render.GoldRushScreenRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 
 public class GoldRushGroundworksClient implements ClientModInitializer {
@@ -18,7 +18,7 @@ public class GoldRushGroundworksClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ModelLayerRegistry.registerModelLayer(
+        EntityModelLayerRegistry.registerModelLayer(
                 GOLD_RUSH_SCREEN_LAYER,
                 GoldRushScreenModel::createBodyLayer
         );

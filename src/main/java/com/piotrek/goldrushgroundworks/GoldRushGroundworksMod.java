@@ -6,7 +6,7 @@ import com.piotrek.goldrushgroundworks.entity.GoldRushScreenEntity;
 import com.piotrek.goldrushgroundworks.item.GoldRushScreenItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -77,10 +77,10 @@ public class GoldRushGroundworksMod implements ModInitializer {
                 GoldRushConfig.getNuggetsPerTenBlocks()
         );
 
-        CreativeModeTabEvents.modifyOutputEvent(GROUNDWORKS_TAB).register(
+        ItemGroupEvents.modifyEntriesEvent(GROUNDWORKS_TAB).register(
                 output -> output.accept(GOLD_RUSH_SCREEN_ITEM)
         );
-        CreativeModeTabEvents.modifyOutputEvent(TOOLS_AND_UTILITIES_TAB).register(
+        ItemGroupEvents.modifyEntriesEvent(TOOLS_AND_UTILITIES_TAB).register(
                 output -> output.accept(GOLD_RUSH_SCREEN_ITEM)
         );
 

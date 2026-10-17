@@ -22,7 +22,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -643,20 +642,18 @@ public class GoldRushScreenEntity extends Entity implements IWorldGranularContai
     private static void giveMachineItem(Player player) {
         ItemStack stack = new ItemStack(GoldRushGroundworksMod.GOLD_RUSH_SCREEN_ITEM);
         if (!player.getInventory().add(stack)) {
-            player.drop(stack, false, Prediction.SERVER_ONLY);
+            player.drop(stack, false);
         }
     }
 
     @Override
-    public InteractionResult interact(Player player, InteractionHand hand, Vec3 location) {
+    public InteractionResult interact(Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
 
         if (player.isSecondaryUseActive() && held.isEmpty()) {
             if (!isEmpty()) {
                 if (!level().isClientSide()) {
-                    player.sendOverlayMessage(
-                            Component.translatable("message.pw_gold_rush_groundworks.not_empty")
-                    );
+                    player.displayClientMessage(Component.translatable("message.pw_gold_rush_groundworks.not_empty"), true);
                 }
                 return InteractionResult.FAIL;
             }
@@ -688,11 +685,12 @@ public class GoldRushScreenEntity extends Entity implements IWorldGranularContai
 
         if (isGoldItem(held)) {
             setSelectedMaterial(GOLD_MATERIAL_ID);
-            player.sendOverlayMessage(
+            player.displayClientMessage(
                     Component.translatable(
                             "message.pw_gold_rush_groundworks.selected_material",
                             getMaterialNameComponent(GOLD_MATERIAL_ID)
-                    )
+                    ),
+                    true
             );
             level().playSound(
                     null,
@@ -716,11 +714,12 @@ public class GoldRushScreenEntity extends Entity implements IWorldGranularContai
         }
 
         setSelectedMaterial(targetId);
-        player.sendOverlayMessage(
+        player.displayClientMessage(
                 Component.translatable(
                         "message.pw_gold_rush_groundworks.selected_material",
                         getMaterialNameComponent(targetId)
-                )
+                ),
+                true
         );
         level().playSound(
                 null,
