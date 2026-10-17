@@ -22,7 +22,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -643,7 +642,7 @@ public class GoldRushScreenEntity extends Entity implements IWorldGranularContai
     private static void giveMachineItem(Player player) {
         ItemStack stack = new ItemStack(GoldRushGroundworksMod.GOLD_RUSH_SCREEN_ITEM);
         if (!player.getInventory().add(stack)) {
-            player.drop(stack, false, Prediction.SERVER_ONLY);
+            player.drop(stack, false);
         }
     }
 

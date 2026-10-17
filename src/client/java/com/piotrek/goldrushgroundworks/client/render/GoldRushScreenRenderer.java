@@ -62,14 +62,7 @@ public class GoldRushScreenRenderer
     }
 
     @Override
-    public boolean shouldRender(
-            GoldRushScreenEntity entity,
-            Frustum frustum,
-            double camX,
-            double camY,
-            double camZ,
-            float partialTick
-    ) {
+    public boolean shouldRender(GoldRushScreenEntity entity, Frustum frustum, double camX, double camY, double camZ) {
         // Inflate culling box so long elevated conveyor booms are never clipped
         AABB bounds = entity.getBoundingBox().inflate(9.0D, 4.5D, 9.0D);
         return frustum.isVisible(bounds);
@@ -83,7 +76,7 @@ public class GoldRushScreenRenderer
             CameraRenderState camera
     ) {
         stack.pushPose();
-        stack.rotateDegrees(Axis.YP, -state.baseYaw);
+        stack.mulPose(Axis.YP.rotationDegrees(-state.baseYaw));
         stack.scale(-1.0F, -1.0F, 1.0F);
         stack.translate(0.0F, -1.5F, 0.0F);
 
@@ -96,7 +89,8 @@ public class GoldRushScreenRenderer
                 RenderTypes.entityCutout(TEXTURE),
                 state.lightCoords,
                 OverlayTexture.NO_OVERLAY,
-                state.outlineColor
+                state.outlineColor,
+                null
         );
 
         // 1. Vibrating material bed on the central screen deck (only while actively screening)
@@ -113,7 +107,7 @@ public class GoldRushScreenRenderer
                 GranularMaterial deckMat = GranularMaterialRegistry.byId(deckMatId);
                 Identifier deckTex = GranularConveyorStreamRenderer.textureFor(deckMat);
                 stack.pushPose();
-                stack.rotateDegrees(Axis.XP, -5.0F);
+                stack.mulPose(Axis.XP.rotationDegrees(-5.0F));
                 GranularConveyorStreamRenderer.renderScreenDeckMaterial(
                         collector,
                         stack,
@@ -138,7 +132,7 @@ public class GoldRushScreenRenderer
             GranularMaterial selectedMat = GranularMaterialRegistry.byId(streamMatId);
             Identifier selectedTex = GranularConveyorStreamRenderer.textureFor(selectedMat);
             stack.pushPose();
-            stack.rotateDegrees(Axis.ZP, -18.0F);
+            stack.mulPose(Axis.ZP.rotationDegrees(-18.0F));
             GranularConveyorStreamRenderer.renderSelectedStream(
                     collector,
                     stack,
@@ -156,7 +150,7 @@ public class GoldRushScreenRenderer
             GranularMaterial remainderMat = GranularMaterialRegistry.byId(state.remainderMaterialId);
             Identifier remainderTex = GranularConveyorStreamRenderer.textureFor(remainderMat);
             stack.pushPose();
-            stack.rotateDegrees(Axis.XP, -18.0F);
+            stack.mulPose(Axis.XP.rotationDegrees(-18.0F));
             GranularConveyorStreamRenderer.renderRemainderStream(
                     collector,
                     stack,

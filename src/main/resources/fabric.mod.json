@@ -6,6 +6,7 @@
   "description": "A Groundworks screening plant that separates excavated material and recovers native Minecraft gold nuggets from processed gravel.",
   "authors": ["Piotrek"],
   "license": "MIT",
+  "icon": "assets/pw_gold_rush_groundworks/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.piotrek.goldrushgroundworks.GoldRushGroundworksMod"],
@@ -13,7 +14,7 @@
   },
   "depends": {
     "fabricloader": ">=0.19.5",
-    "minecraft": "~26.3",
+    "minecraft": "~26.2",
     "java": ">=25",
     "fabric-api": "*",
     "pw_groundworks": ">=0.1.0"
